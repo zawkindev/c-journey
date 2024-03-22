@@ -3,7 +3,7 @@
 #define IN 1
 #define OUT 0
 
-int main() {
+main() {
   int c, nc, nw, nl, state;
 
   nw = nl = 0;
@@ -11,7 +11,7 @@ int main() {
     if (c == '\n')
       ++nl;
 
-    if (c == ' ' || c == '\t' || c == '\n' || c == EOF) {
+    if (c == ' ' || c == '\t' || c == '\n') {
       if (state == IN)
         ++nw;
       state = OUT;
