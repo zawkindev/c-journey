@@ -6,7 +6,7 @@
 
 float convert(float fahr) { return (5.0 / 9.0) * (fahr - 32); }
 
-main() {
+int main() {
   float fahr;
 
   for (fahr = HIGHER; fahr >= LOWER; fahr -= STEP) {

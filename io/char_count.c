@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main() {
+int main() {
   double count;
 
   for (count = 0; getchar() != EOF; ++count)
