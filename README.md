@@ -1,4 +1,4 @@
-## Compiler: gcc 13.2.0
+## Compiler: gcc 13.2.1
 ```
-cc filename.c -std=c89
+cc filename.c
 ```
