@@ -2,7 +2,7 @@
 
 #define MAX_LINE 1422
 
-int readline(char *line) {
+int readline(char line[]) {
   int i;
   char c;
 
@@ -14,9 +14,13 @@ int readline(char *line) {
   return i; // length of an array
 }
 
-void copy(char *max_line, char *current_line) {
-  for (int i = 0; current_line[i] != '\0' && i < MAX_LINE; ++i)
-    max_line[i] = current_line[i];
+void copy(char max_line[], char current_line[]) {
+  int i;
+
+  i = 0;
+  while ((max_line[i] = current_line[i]) != '\0') {
+    ++i;
+  }
 }
 
 int main() {
