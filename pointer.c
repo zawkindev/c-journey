@@ -1,19 +1,19 @@
 #include "stdio.h"
 
+void swap(void *a, void *b){
+  void *temp = a;
+  a=b;
+  b=temp;
+}
+
 int main() {
-  int a = 0;
-  float b = 0.0;
+  int a = 2;
+  float b = 1.0;
 
-  int *p = NULL; 
-  float *q = NULL;
+  printf("a=%d, b=%f\n",a,b);
+  swap(&a,&b);
+  printf("-------Swapped------\n");
+  printf("a=%f, b=%d\n",a,b);
 
-  q = &b;
-  p = &a;
-
-  void *temp = p;
-  p=(int*)q;
-  q=temp;
-
-  
   return 0;
 }
