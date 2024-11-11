@@ -11,3 +11,9 @@ struct Node *createNode(int data) {
   newNode->next = NULL;
   return newNode;
 }
+
+void insertAtTheBeginning(struct Node** head, int data){
+  struct Node* newNode = createNode(data);
+  newNode->next = *head;
+  *head = newNode; 
+}
