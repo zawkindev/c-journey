@@ -12,9 +12,17 @@ Node *createNode(int data) {
   return newNode;
 }
 
-
-void push(int data, Node** top){
+void push(int data, Node **top) {
   Node *newNode = createNode(data);
   newNode->next = *top;
   *top = newNode;
+}
+
+int pop(Node **top) {
+  int data = (*top)->data;
+  Node *temp = *top;
+  *top = (*top)->next;
+  free(temp);
+
+  return data;
 }
