@@ -1,28 +1,29 @@
 #include <stdlib.h>
+#define STACK_INIT_CAPACITY 4
 
-typedef struct Node {
-  int data;
-  struct Node *next;
-} Node;
+typedef struct {
+  int *data;
+  int top;
+  int capacity;
+} Stack;
 
-Node *createNode(int data) {
-  Node *newNode = (Node *)malloc(sizeof(Node));
-  newNode->data = data;
-  newNode->next = NULL;
-  return newNode;
+Stack *create_stack() {
+  Stack *stack = (Stack *)malloc(sizeof(Stack));
+  stack->data = (int *)malloc(sizeof(int) * STACK_INIT_CAPACITY);
+  stack->top = -1;
+  stack->capacity = STACK_INIT_CAPACITY;
+
+  return stack;
 }
 
-void push(int data, Node **top) {
-  Node *newNode = createNode(data);
-  newNode->next = *top;
-  *top = newNode;
+void resize_stack(Stack *stack) {
+  stack->capacity *= 2;
+  stack->data = (int *)realloc(stack->data, stack->capacity * sizeof(int));
 }
 
-int pop(Node **top) {
-  int data = (*top)->data;
-  Node *temp = *top;
-  *top = (*top)->next;
-  free(temp);
-
-  return data;
+void push(Stack *stack, int value) {
+  if (stack->top >= stack->capacity - 1) {
+    resize_stack(stack);
+  }
+  stack->data[++stack->top] = value;
 }
