@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct Node {
@@ -37,4 +38,22 @@ void enqueue(Queue *queue, int data) {
     queue->rear = newNode;
   }
   queue->size++;
+}
+
+void dequeue(Queue *queue) {
+  if (queue->size == 0) {
+    printf("Queue is EMPTY");
+    return;
+  }
+
+  Node* temp = queue->front;
+  queue->front=queue->front->next;
+
+  if (queue->front==NULL) {
+    queue->rear=NULL;
+  }
+  
+  free(temp);
+
+  queue->size--;
 }
