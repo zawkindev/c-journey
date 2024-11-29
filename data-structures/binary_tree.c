@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 
 typedef struct node {
   int data;
@@ -25,4 +27,13 @@ void insert(node **root, int data) {
       insert(&(*root)->right, data);
     }
   }
+}
+
+void delete_tree(node *root) {
+  if (!root)
+    return;
+
+  delete_tree(root->left);
+  delete_tree(root->right);
+  free(root);
 }
