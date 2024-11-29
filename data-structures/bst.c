@@ -29,6 +29,19 @@ void insert(node **root, int data) {
   }
 }
 
+void delete_node(node *root, int data) {
+  if (!root)
+    return;
+
+  if (data < root->data) {
+    delete_node(root->left, data);
+  } else if (data > root->data) {
+    delete_node(root->right, data);
+  } else {
+    free(root);
+  }
+}
+
 void delete_tree(node *root) {
   if (!root)
     return;
