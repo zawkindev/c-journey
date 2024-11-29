@@ -1,6 +1,4 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
 
 typedef struct node {
   int data;
